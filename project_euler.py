@@ -5,13 +5,13 @@ Created on Wed May 14 10:42:39 2014
 @author: CONTJ073
 """
 
-# Find the sum of all the multiples of 3 or 5 below 1000.
+# 1. Find the sum of all the multiples of 3 or 5 below 1000.
 print sum([i for i in range(1, 1000) if i % 3 == 0 or i % 5 == 0])
 
 
 
-# By considering the terms in the Fibonacci sequence whose values do not exceed
-# four million, find the sum of the even-valued terms.
+# 2. By considering the terms in the Fibonacci sequence whose values do not
+# exceed four million, find the sum of the even-valued terms.
 fibonacci = [1, 1]
 while max(fibonacci) < 4000000:
     fibonacci.append(fibonacci[-1] + fibonacci[-2])
@@ -19,7 +19,7 @@ print sum([f for f in fibonacci if f % 2 == 0])
 
 
 
-# What is the largest prime factor of the number 600851475143?
+# 3. What is the largest prime factor of the number 600851475143?
 # Solution modified from http://bit.ly/1nJtQXc
 n = 600851475143
 d = 2
@@ -32,24 +32,7 @@ print n
 
 
 
-# Find the difference between the sum of the squares of the first one hundred
-# natural numbers and the square of the sum.
-n = xrange(1, 101)
-print abs(sum([i ** 2 for i in n]) - sum(n) ** 2)
-
-
-
-# What is the smallest positive number that is evenly divisible by all of the
-# numbers from 1 to 20?
-n = 20
-small_positive = n
-while ~all([small_positive % i == 0 for i in xrange(2, n + 1)]):
-    small_positive += n
-print small_positive
-
-
-
-# Find the largest palindrome made from the product of two 3-digit numbers.
+# 4. Find the largest palindrome made from the product of two 3-digit numbers.
 n_range = xrange(999, 99, -1)
 palindromes = []
 for i in n_range:
@@ -61,7 +44,24 @@ print max(palindromes)
 
 
 
-# What is the 10001st prime number?
+# 5. What is the smallest positive number that is evenly divisible by all of
+# the numbers from 1 to 20?
+n = 20
+small_positive = n
+while ~all([small_positive % i == 0 for i in xrange(2, n + 1)]):
+    small_positive += n
+print small_positive
+
+
+
+# 6. Find the difference between the sum of the squares of the first one
+# hundred natural numbers and the square of the sum.
+n = xrange(1, 101)
+print abs(sum([i ** 2 for i in n]) - sum(n) ** 2)
+
+
+
+# 7. What is the 10001st prime number?
 def is_prime(n):
     if n == 2:
         return True
@@ -83,7 +83,7 @@ print n
 
 
 
-# Find the greatest product of 5 consecutive digits in the 1000-digit number.
+# 8. Find the greatest product of 5 consecutive digits in the 1000-digit number.
 def list_product(x):
     return reduce(lambda a, b: a * b, x)
 n = ('731671765313306249192251196744265747423553491949349698352031277450632623'
@@ -108,8 +108,8 @@ print max_prod
 
 
 
-# There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find
-# the product abc.
+# 9. There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+# Find the product abc.
 def triplet(n):
     for a in xrange(1, n + 1):
         for b in xrange(a, n + 1):
@@ -120,7 +120,7 @@ print triplet(1000)
 
 
 
-# Find the sum of all the primes below two million.
+# 10. Find the sum of all the primes below two million.
 prime_sum = 0
 for n in xrange(2, 2000000):
     if is_prime(n):
@@ -129,8 +129,8 @@ print prime_sum
 
 
 
-# What is the greatest product of four adjacent numbers in the same direction
-# (up, down, left, right, or diagonally) in the 20×20 grid?
+# 11. What is the greatest product of four adjacent numbers in the same
+# direction (up, down, left, right, or diagonally) in the 20×20 grid?
 nums = ('08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n\
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00\n\
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65\n\
@@ -173,7 +173,7 @@ print max_prod
 
 
 
-# What is the value of the first triangle number to have over 500 divisors?
+# 12. What is the value of the first triangle number to have over 500 divisors?
 from math import sqrt
 n = 1
 tri_num = 0
@@ -193,7 +193,8 @@ while div_less_than_500:
 
 
 
-# Work out the first 10 digits of the sum of the following 100 50-digit numbers
+# 13. Work out the first 10 digits of the sum of the following 100 50-digit
+# numbers.
 nums = ('37107287533902102798797998220837590246510135740250\n\
 46376937677490009712648124896970078050417018260538\n\
 74324986199524741059474233309513058123726617309629\n\
@@ -301,7 +302,7 @@ print str(nums_sum)[:10]
 
 
 
-# Which starting number, under one million, produces the longest chain?
+# 14. Which starting number, under one million, produces the longest chain?
 max_length = 0
 max_n = 0
 for n in xrange(2, 1000000):
@@ -320,18 +321,7 @@ print max_n
 
 
 
-# What is the sum of the digits of the number 21000?
-def sum_digits(n):
-    return sum([int(d) for d in list(str(n))])
-print sum_digits(2 ** 1000)
-
-# Find the sum of the digits in the number 100!
-from math import factorial
-print sum_digits(factorial(100))
-
-
-
-# How many such routes are there through a 20×20 grid?
+# 15. How many such routes are there through a 20×20 grid?
 grid_size = 20
 paths = 1
 for i in xrange(grid_size):
@@ -341,19 +331,15 @@ print paths
 
 
 
-# What is the first term in the Fibonacci sequence to contain 1000 digits?
-fibonacci = [1, 1]
-not_1k_digits = True
-while not_1k_digits:
-    fibonacci.append(fibonacci[-1] + fibonacci[-2])
-    if len(list(str(fibonacci[-1]))) == 1000:
-        not_1k_digits = False
-print len(fibonacci)
+# 16. What is the sum of the digits of the number 2^1000?
+def sum_digits(n):
+    return sum([int(d) for d in list(str(n))])
+print sum_digits(2 ** 1000)
 
 
 
-# If all the numbers from 1 to 1000 inclusive were written out in words, how
-# many letters would be used?
+# 17. If all the numbers from 1 to 1000 inclusive were written out in words,
+# how many letters would be used?
 dgts = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
          'sixteen', 'seventeen', 'eighteen', 'nineteen']
@@ -363,3 +349,33 @@ to_99 = dgts + teens + tens + [i + j for i in tens for j in dgts]
 hundreds = [i + 'hundred' for i in dgts] * 100
 nums = to_99 * 10 + hundreds + ['and'] * 99 * 9 + ['thousand'] + [dgts[0]]
 print len(''.join(nums))
+
+
+
+# 19. How many Sundays fell on the first of the month during the 20th century?
+from datetime import date, timedelta
+date_list = [date(1901, 1, 1)]
+while date_list[-1] != date(2000, 12, 31):
+    date_list.append(date_list[-1] + timedelta(days=1))
+sun_1st_sum = 0
+for d in date_list:
+    if d.weekday() == 6 and d.day == 1:
+        sun_1st_sum += 1
+print sun_1st_sum
+
+
+
+# 20. Find the sum of the digits in the number 100!
+from math import factorial
+print sum_digits(factorial(100))
+
+
+
+# 25. What is the first term in the Fibonacci sequence to contain 1000 digits?
+fibonacci = [1, 1]
+not_1k_digits = True
+while not_1k_digits:
+    fibonacci.append(fibonacci[-1] + fibonacci[-2])
+    if len(list(str(fibonacci[-1]))) == 1000:
+        not_1k_digits = False
+print len(fibonacci)
